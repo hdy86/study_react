@@ -1,10 +1,10 @@
-const MyComponent = (props) => {
+const MyComponent = ({ name, message, children }) => {
   return (
     <>
       <h1>
-        부모가 물려준 이름은 {props.name}입니다. <br /> {props.message}
+        부모가 물려준 이름은 {name}입니다. <br /> {message}
       </h1>
-      {props.children}
+      {children}
     </>
   );
 };
