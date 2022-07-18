@@ -10,19 +10,6 @@ function App() {
   const name1 = "리액트";
   return (
     <>
-      {/* 220714 */}
-      <IternationSample />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
       {/* 220712 */}
       <Jsx />
       <br />
@@ -45,7 +32,7 @@ function App() {
       <br />
 
       {/* 220714 */}
-      {/* <IternationSample /> */}
+      <IternationSample />
     </>
   );
 }
