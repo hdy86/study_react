@@ -5,11 +5,28 @@ import Counter from "./components/Counter";
 import Say from "./components/Say";
 import EventPractice from "./components/EventPractice";
 import IternationSample from "./components/IterationSample";
+import Counter2 from "./components/Counter2";
+// import Info from "./components/Info";
+import Parent from "./components/Parent";
+import Counter3 from "./components/Counter3";
+import Info2 from "./components/Info2";
+import Average from "./components/Average";
 
 function App() {
   const name1 = "리액트";
   return (
     <>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
       {/* 220712 */}
       <Jsx />
       <br />
@@ -33,6 +50,20 @@ function App() {
 
       {/* 220714 */}
       <IternationSample />
+      <br />
+
+      {/* 220718 */}
+      <Counter2 />
+      <br />
+      <br />
+      {/* <Info /> */}
+      <Parent />
+      <Counter3 />
+      <br />
+      <Info2 />
+      <br />
+      <Average />
+      <br />
     </>
   );
 }
