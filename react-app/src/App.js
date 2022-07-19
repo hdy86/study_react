@@ -11,22 +11,14 @@ import Parent from "./components/Parent";
 import Counter3 from "./components/Counter3";
 import Info2 from "./components/Info2";
 import Average from "./components/Average";
+import InputFile from "./components/InputFile";
+import StyledComponent from "./components/StyledComponent";
+import Flex from "./components/Flex";
 
 function App() {
   const name1 = "리액트";
   return (
     <>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
       {/* 220712 */}
       <Jsx />
       <br />
@@ -38,7 +30,6 @@ function App() {
         <h1>h1 이에요</h1>
         <h5>h5 이에요</h5>
       </MyComponent>
-
       {/* 220713 */}
       <Counter />
       <br />
@@ -47,11 +38,9 @@ function App() {
       <EventPractice />
       <br />
       <br />
-
       {/* 220714 */}
-      <IternationSample />
+      <IternationSample /> {/* 220719 수정 */}
       <br />
-
       {/* 220718 */}
       <Counter2 />
       <br />
@@ -60,10 +49,18 @@ function App() {
       <Parent />
       <Counter3 />
       <br />
-      <Info2 />
+      <Info2 /> {/* 220719 수정 */}
       <br />
       <Average />
       <br />
+      <br />
+      {/* 220719 */}
+      <InputFile />
+      <br />
+      <br />
+      <StyledComponent />
+      <br />
+      <Flex />
     </>
   );
 }
