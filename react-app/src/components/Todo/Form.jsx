@@ -6,28 +6,25 @@ const Form = ({ onAdd }) => {
   const [text, setText] = useState("");
   const inputEl = useRef(null);
 
-  const handleAdd = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     onAdd(text);
     setText("");
     inputEl.current.focus();
   };
-  const handleKeyUp = (e) => {
-    if (e.key === "Enter") {
-      handleAdd();
-    }
-  };
 
   return (
-    <InputWrapper>
-      <Input
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        onKeyUp={handleKeyUp}
-        ref={inputEl}
-        placeholder="할 일을 입력하세요."
-      />
-      <BtnSubmit onClick={handleAdd}>+</BtnSubmit>
-    </InputWrapper>
+    <form onSubmit={handleSubmit}>
+      <InputWrapper>
+        <Input
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          ref={inputEl}
+          placeholder="할 일을 입력하세요."
+        />
+        <BtnSubmit>+</BtnSubmit>
+      </InputWrapper>
+    </form>
   );
 };
 

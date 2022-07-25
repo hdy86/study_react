@@ -15,13 +15,15 @@ import InputFile from "./components/InputFile";
 import StyledComponent from "./components/StyledComponent";
 import Flex from "./components/Flex";
 import Todo from "./components/Todo";
+import Axios from "./components/Axios";
+import Bootstrap from "./components/Bootstrap";
 
 function App() {
   const name1 = "리액트";
   return (
     <>
-      {/* 220720 */}
-      <Todo />
+      <br />
+      <br />
       <br />
       <br />
       {/* 220712 */}
@@ -66,6 +68,13 @@ function App() {
       <StyledComponent />
       <br />
       <Flex />
+      {/* 220720 */}
+      <Todo />
+      <br />
+      <br />
+      {/* 220721 */}
+      <Axios />
+      <Bootstrap />
     </>
   );
 }

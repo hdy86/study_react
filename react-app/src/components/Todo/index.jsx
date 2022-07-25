@@ -42,12 +42,10 @@ const Todo = () => {
   };
 
   const handleChecked = (checkId) => {
-    const nextTodo = todos.map((todo) => {
-      if (todo.id === checkId) {
-        todo.checked = !todo.checked;
-      }
-      return todo;
-    });
+    const nextTodo = todos.map((todo) =>
+      // 삼항연산자 - 조건 ? true일 때 : false일 때
+      todo.id === checkId ? { ...todo, checked: !todo.checked } : todo
+    );
     setTodos(nextTodo);
   };
 
