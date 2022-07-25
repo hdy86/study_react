@@ -22,10 +22,6 @@ function App() {
   const name1 = "리액트";
   return (
     <>
-      <br />
-      <br />
-      <br />
-      <br />
       {/* 220712 */}
       <Jsx />
       <br />
@@ -74,7 +70,12 @@ function App() {
       <br />
       {/* 220721 */}
       <Axios />
+      {/* 220721, 220725 */}
       <Bootstrap />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 }

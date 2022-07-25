@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 import Accordion from "./Accordion";
-import accordionData from "../../datas/accordion";
+import Dropdown from "./Dropdown";
+import { data1, data2 } from "../../datas/accordion";
 
 const Bootstrap = () => {
   return (
     <>
       <Layout>
-        <Accordion data={accordionData} />
+        <Accordion data={data1} />
+        <Accordion data={data2} />
+        <Dropdown />
       </Layout>
     </>
   );
