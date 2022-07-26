@@ -76,6 +76,7 @@ const Body = styled.div`
   padding: 10px;
   border-top: 1px solid #ddd;
   display: none;
+  background: #fff;
 `;
 
 export default Accordion;
