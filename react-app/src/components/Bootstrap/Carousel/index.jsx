@@ -10,7 +10,6 @@ const Carousel1 = ({ data, type }) => {
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      console.log("HiHi");
       handleIndex(index + 1);
     }, 3000);
 
