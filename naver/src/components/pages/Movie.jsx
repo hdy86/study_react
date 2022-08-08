@@ -2,9 +2,13 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 
 import { getMovies } from "../../apis";
+import Form from "../templates/Movie/Form";
 
 const Movie = () => {
   const [items, setItems] = useState([]);
+  const [params, setParams] = useState({ query: "", country: "all" });
+
+  const { query, country } = params;
 
   // useEffect(() => {
   //   // 즉시실행함수 (IIFE)
@@ -16,27 +20,32 @@ const Movie = () => {
 
   useEffect(() => {
     refreshList();
-  }, []);
+  }, [params]);
 
   const refreshList = async () => {
-    const result = await getMovies();
-    console.log(result.items);
+    const params = { query };
+    if (country !== "all") {
+      params.country = country;
+    }
+    const result = await getMovies(params);
     setItems(result.items);
+  };
+
+  const handleChange = ({ name, value }) => {
+    const newParams = { ...params, [name]: value };
+    setParams(newParams);
   };
 
   return (
     <>
       <h1>영화 검색</h1>
-      <Form>
-        <Input />
-        <BtnSearch>검색</BtnSearch>
-      </Form>
+      <Form data={params} onChange={handleChange} />
       <List>
         {items.map(({ title, link, image }) => (
           <Item key={link}>
             <Thumbnail src={image} />
             <a href={link} target="_blank" rel="noreferrer">
-              <Name>{title}</Name>
+              <Name dangerouslySetInnerHTML={{ __html: title }}></Name>
             </a>
           </Item>
         ))}
@@ -58,15 +67,6 @@ const Movie = () => {
   );
 };
 
-const Form = styled.form`
-  margin: 20px;
-  display: flex;
-`;
-const Input = styled.input`
-  flex: 1;
-  margin-right: 10px;
-`;
-const BtnSearch = styled.button``;
 const List = styled.div`
   margin: 20px;
   display: grid;
@@ -77,6 +77,6 @@ const Item = styled.div``;
 const Thumbnail = styled.img`
   width: 100%;
 `;
-const Name = styled.h3``;
+const Name = styled.p``;
 
 export default Movie;
