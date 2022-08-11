@@ -1,8 +1,12 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Form = ({ onChange }) => {
-  const [text, setText] = useState("");
+const Form = ({ defaultQuery, onChange }) => {
+  const [text, setText] = useState(defaultQuery ?? "");
+
+  useEffect(() => {
+    setText(defaultQuery ?? "");
+  }, [defaultQuery]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

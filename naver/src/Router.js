@@ -5,6 +5,7 @@ import Header from "./components/organisms/Header";
 import Main from "./components/pages/Main";
 import Movie from "./components/pages/Movie";
 import Book from "./components/pages/Book";
+import BookDetail from "./components/pages/BookDetail";
 
 const Router = () => {
   return (
@@ -18,6 +19,7 @@ const Router = () => {
             {/* 자식라우트 */}
             <Route path="/movie" element={<Movie />} />
             <Route path="/book" element={<Book />} />
+            <Route path="/book/:isbn" element={<BookDetail />} />
           </Route>
         </Routes>
       </BrowserRouter>
