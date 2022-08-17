@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   Layout,
@@ -15,12 +15,14 @@ import {
 import authApis from "../../apis/auth";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
-    user_name: "",
+    userName: "",
     password: "",
+    passwordConfirm: "",
     name: "",
   });
-  const { user_name, password, name } = form;
+  const { userName, password, passwordConfirm, name } = form;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,9 +30,17 @@ const SignUp = () => {
     setForm(newForm);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    authApis.login(form);
+
+    if (userName.length < 4) return alert("아이디를 4글자 이상 입력해주세요.");
+    if (password !== passwordConfirm) return alert("비밀번호를 확인해주세요.");
+
+    const { success, message } = await authApis.signUp(form);
+    if (!success) return alert(message);
+
+    alert("회원가입 성공!");
+    navigate("/log-in");
   };
 
   return (
@@ -41,24 +51,35 @@ const SignUp = () => {
           <Form onSubmit={handleSubmit}>
             <Input
               placeholder="사용자 이름"
-              name="user_name"
+              name="userName"
               onChange={handleChange}
-              value={user_name}
+              value={userName}
+              required
             />
             <Input
               placeholder="비밀번호"
-              name="password"
               type="password"
+              name="password"
               onChange={handleChange}
               value={password}
+              required
+            />
+            <Input
+              placeholder="비밀번호 확인"
+              type="password"
+              name="passwordConfirm"
+              onChange={handleChange}
+              value={passwordConfirm}
+              required
             />
             <Input
               placeholder="성명"
               name="name"
               onChange={handleChange}
               value={name}
+              required
             />
-            <BtnSubmit onClick={handleSubmit}>가입</BtnSubmit>
+            <BtnSubmit>가입</BtnSubmit>
           </Form>
         </Box>
         <Box>
