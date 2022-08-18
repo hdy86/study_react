@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 
 import {
   Layout,
@@ -15,8 +16,11 @@ import {
 
 import authApis from "../../apis/auth";
 import instance from "../../apis";
+import isLoginState from "../../stores/isLoginState";
 
 const LogIn = () => {
+  const setIsLogin = useSetRecoilState(isLoginState);
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     userName: "",
     password: "",
@@ -35,6 +39,9 @@ const LogIn = () => {
     if (!success) return alert(message);
 
     instance.defaults.headers.common["Authorization"] = "Bearer " + token;
+    localStorage.token = token;
+    setIsLogin(true);
+    navigate("/");
   };
 
   return (
